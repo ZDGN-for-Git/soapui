@@ -26,6 +26,7 @@ import com.eviware.soapui.settings.VersionUpdateSettings;
 import com.eviware.soapui.settings.WSISettings;
 import com.eviware.soapui.settings.WsaSettings;
 import com.eviware.soapui.settings.WsdlSettings;
+import com.eviware.soapui.settings.AllureReportSettings;
 import com.eviware.soapui.support.UISupport;
 import com.eviware.soapui.support.components.SwingConfigurationDialogImpl;
 import com.eviware.soapui.support.factory.SoapUIFactoryRegistryListener;
@@ -67,6 +68,7 @@ public class SoapUIPreferencesAction extends AbstractAction implements SoapUIFac
     public static final String SSL_SETTINGS = "SSL Settings";
     public static final String INTEGRATED_TOOLS = "Tools";
     public static final String WSA_SETTINGS = "WS-A Settings";
+    public static final String ALLURE_REPORT_SETTINGS = "Allure Report Settings";
     public static final String GLOBAL_SENSITIVE_INFORMATION_TOKENS = "Global Sensitive Information Tokens";
     public static final String VERSIONUPDATE_SETTINGS = "Version Update Settings";
     private SwingConfigurationDialogImpl dialog;
@@ -97,6 +99,7 @@ public class SoapUIPreferencesAction extends AbstractAction implements SoapUIFac
         addPrefs(new AnnotatedSettingsPrefs(WsaSettings.class, WSA_SETTINGS));
         addPrefs(new SecurityScansPrefs(GLOBAL_SENSITIVE_INFORMATION_TOKENS));
         addPrefs(new AnnotatedSettingsPrefs(VersionUpdateSettings.class, VERSIONUPDATE_SETTINGS));
+        addPrefs(new AllureReportPrefs(ALLURE_REPORT_SETTINGS));
 
         for (PrefsFactory factory : SoapUI.getFactoryRegistry().getFactories(PrefsFactory.class)) {
             addPrefsFactory(factory);
